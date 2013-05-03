@@ -64,6 +64,27 @@
       root = this.rootForType(type);
       config = get(this, 'serializer').configurationForType(type);
       return primaryKey = config && config.primaryKey;
+    },
+    ajax: function(url, type, hash, dataType) {
+      var antiForgeryToken, antiForgeryTokenElemSelector;
+      hash.url = url;
+      hash.type = type;
+      hash.dataType = dataType || 'json';
+      hash.contentType = 'application/json; charset=utf-8';
+      hash.context = this;
+      if (hash.data && type !== 'GET') {
+        hash.data = JSON.stringify(hash.data);
+      }
+      antiForgeryTokenElemSelector = get(this, 'antiForgeryTokenSelector');
+      if (antiForgeryTokenElemSelector) {
+        antiForgeryToken = $(antiForgeryTokenElemSelector).val();
+        if (antiForgeryToken) {
+          hash = {
+            'RequestVerificationToken': antiForgeryToken
+          };
+        }
+      }
+      jQuery.ajax(hash);
     }
   });
 

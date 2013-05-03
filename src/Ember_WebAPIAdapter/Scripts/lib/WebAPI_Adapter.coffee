@@ -66,3 +66,22 @@ DS.WebAPIAdapter = DS.RESTAdapter.extend
     config = get(@, 'serializer').configurationForType(type)
     primaryKey = config && config.primaryKey
 
+  ajax: (url, type, hash, dataType) ->
+    hash.url = url
+    hash.type = type
+    hash.dataType = dataType || 'json'
+    hash.contentType = 'application/json; charset=utf-8'
+    hash.context = @
+
+    if (hash.data && type != 'GET') 
+      hash.data = JSON.stringify hash.data
+
+    antiForgeryTokenElemSelector = get(this, 'antiForgeryTokenSelector')
+    if antiForgeryTokenElemSelector 
+      antiForgeryToken = $(antiForgeryTokenElemSelector).val()
+      if(antiForgeryToken)
+        hash = {
+          'RequestVerificationToken': antiForgeryToken
+        }
+    jQuery.ajax(hash)
+    return
