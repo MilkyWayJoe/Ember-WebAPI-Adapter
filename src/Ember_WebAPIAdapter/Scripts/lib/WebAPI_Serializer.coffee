@@ -5,8 +5,8 @@ DS.WebAPISerializer = DS.RESTSerializer.extend
   keyForAttributeName: (type, name) ->
     name
 
-  extractMany: (loader, json, type, record) ->
-    root = @rootTypeFor(type)
+  extractMany: (loader, json, type, records) ->
+    root = @rootForType(type)
     root = @pluralize(root)
 
     if(json instanceof Array)
@@ -20,7 +20,7 @@ DS.WebAPISerializer = DS.RESTSerializer.extend
       references = []
       if records
         records = records.toArray()
-        for i in [0..objects.length] by 1
+        for i in [0..objects.length-1] by 1
           if (records) 
             loader.updateId(records[i], objects[i])
 

@@ -7,9 +7,9 @@
     keyForAttributeName: function(type, name) {
       return name;
     },
-    extractMany: function(loader, json, type, record) {
-      var i, objects, records, reference, references, root, _i, _ref;
-      root = this.rootTypeFor(type);
+    extractMany: function(loader, json, type, records) {
+      var i, objects, reference, references, root, _i, _ref;
+      root = this.rootForType(type);
       root = this.pluralize(root);
       if (json instanceof Array) {
         objects = json;
@@ -22,7 +22,7 @@
         references = [];
         if (records) {
           records = records.toArray();
-          for (i = _i = 0, _ref = objects.length; _i <= _ref; i = _i += 1) {
+          for (i = _i = 0, _ref = objects.length - 1; _i <= _ref; i = _i += 1) {
             if (records) {
               loader.updateId(records[i], objects[i]);
             }

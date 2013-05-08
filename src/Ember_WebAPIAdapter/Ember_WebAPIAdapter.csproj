@@ -80,15 +80,6 @@
     <Content Include="Scripts\lib\WebAPI_Serializer.min.js">
       <DependentUpon>WebAPI_Serializer.coffee</DependentUpon>
     </Content>
-    <Content Include="Scripts\tests\Adapter_Tests.js">
-      <DependentUpon>Adapter_Tests.coffee</DependentUpon>
-    </Content>
-    <Content Include="Scripts\tests\Serializer_Tests.js">
-      <DependentUpon>Serializer_Tests.coffee</DependentUpon>
-    </Content>
-    <Content Include="Scripts\tests\Store_Tests.js">
-      <DependentUpon>Store_Tests.coffee</DependentUpon>
-    </Content>
     <Content Include="Scripts\qunit.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />

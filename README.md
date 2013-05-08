@@ -11,7 +11,7 @@ Extension of `DS.RESTSerializer` and `DS.RESTAdapter` from [Ember-Data][1] to su
  - __Environment & Tools:__
   - Visual Studio 2012 ( >= [Update 1][2])
   - [Web Essentials 2012][3]
-  - [Chutzpah Test Runner][4]
+  - [Chutzpah Test Runner][4] or [Chutzpah Test Adapter][5]
 
  - __JavaScript:__
   - jQuery 1.9.1+
@@ -21,15 +21,29 @@ Extension of `DS.RESTSerializer` and `DS.RESTAdapter` from [Ember-Data][1] to su
   - Qunit  
 
 ##Building the Project
-Adapter and Serializer available in `~/scripts/dist`
+
+Currently, the adapter an serializer are copied to `~/scripts/dist` after successful build.
+See Build Events in project properties window for more details.
 
 more info comming soon
 
 ##Tests
-comming soon
+If you are using a full version of Visual Studio 2012, run the tests through Chutzpah Test Adapter.
+
+If you are using an Express version of Visual Studio 2012, you can do one of the following:
+
+- In Visual Studio's Command Window, use Tools.Shell as follows:
+
+        Tools.Shell /c cmd.exe /c C:\<path to chutzpah directory>\chutzpah.console.exe C:\<path to solution directory>\Ember_WebAPIAdapter\Scripts\tests\serializer_tests.coffee
+
+or
+        
+ - Outside Visual Studio, open a new console and access the directory where Chutzpah was installed/extracted and run the following command:
+ 
+        C:\<your directory>>chutzpah.console.exe C:\<path to solution directory>\Ember_WebAPIAdapter\Scripts\tests\serializer_tests.coffee
 
 ##Issues
-Found a bug? [Log a new issue][5].
+Found a bug? [Log a new issue][6].
 
 ##Changelog
 comming soon
@@ -37,5 +51,6 @@ comming soon
  [1]: https://github.com/emberjs/data
  [2]: http://blogs.msdn.com/b/somasegar/archive/2012/11/26/visual-studio-2012-update-1-now-available.aspx
  [3]: http://visualstudiogallery.msdn.microsoft.com/07d54d12-7133-4e15-becb-6f451ea3bea6
- [4]: http://visualstudiogallery.msdn.microsoft.com/71a4e9bd-f660-448f-bd92-f5a65d39b7f0
- [5]: https://github.com/MilkyWayJoe/Ember-WebAPI-Adapter/issues/new
+ [4]: http://chutzpah.codeplex.com/
+ [5]: http://visualstudiogallery.msdn.microsoft.com/71a4e9bd-f660-448f-bd92-f5a65d39b7f0
+ [6]: https://github.com/MilkyWayJoe/Ember-WebAPI-Adapter/issues/new
