@@ -3,7 +3,7 @@ get = Em.get
 
 DS.WebAPISerializer = DS.RESTSerializer.extend
   keyForAttributeName: (type, name) ->
-    name
+    Em.String.capitalize(name)
 
   extractMany: (loader, json, type, record) ->
     root = @rootTypeFor(type)

@@ -1,4 +1,4 @@
-(function() {
+﻿(function() {
   var get;
 
   get = Em.get;
@@ -67,6 +67,9 @@
     },
     ajax: function(url, type, hash, dataType) {
       var antiForgeryToken, antiForgeryTokenElemSelector;
+      hash = hash || {
+        data: null
+      };
       hash.url = url;
       hash.type = type;
       hash.dataType = dataType || 'json';
@@ -84,7 +87,7 @@
           };
         }
       }
-      jQuery.ajax(hash);
+      return jQuery.ajax(hash);
     }
   });
 

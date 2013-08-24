@@ -1,11 +1,11 @@
-(function() {
+﻿(function() {
   var get;
 
   get = Em.get;
 
   DS.WebAPISerializer = DS.RESTSerializer.extend({
     keyForAttributeName: function(type, name) {
-      return name;
+      return Em.String.capitalize(name);
     },
     extractMany: function(loader, json, type, record) {
       var i, objects, records, reference, references, root, _i, _ref;

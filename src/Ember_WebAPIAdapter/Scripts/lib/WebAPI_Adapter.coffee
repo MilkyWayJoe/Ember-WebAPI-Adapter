@@ -67,6 +67,7 @@ DS.WebAPIAdapter = DS.RESTAdapter.extend
     primaryKey = config && config.primaryKey
 
   ajax: (url, type, hash, dataType) ->
+    hash = hash || { data: null }
     hash.url = url
     hash.type = type
     hash.dataType = dataType || 'json'
@@ -84,4 +85,3 @@ DS.WebAPIAdapter = DS.RESTAdapter.extend
           'RequestVerificationToken': antiForgeryToken
         }
     jQuery.ajax(hash)
-    return
